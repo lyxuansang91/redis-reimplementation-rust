@@ -1,5 +1,4 @@
 mod command;
-
 use std::collections::HashMap;
 use std::env;
 use std::sync::{Arc, Mutex};
@@ -33,9 +32,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Load environment variables from `.env` if present.
     let _ = dotenvy::dotenv();
 
-    let addr = env::var("REDIS_RS_ADDR").unwrap_or_else(|_| "127.0.0.1:6379".to_string());
-    let listener = TcpListener::bind(addr).await?;
-    println!("Redis-like server listening on {}", addr);
+    let addr: String = env::var("REDIS_RS_ADDR").unwrap_or_else(|_| "127.0.0.1:6379".to_string());
+    let listener = TcpListener::bind(&addr).await?;
+    println!("Redis-like server listening on {}", &addr);
 
     let db: Db = Arc::new(Mutex::new(HashMap::new()));
 

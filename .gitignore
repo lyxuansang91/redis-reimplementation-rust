@@ -5,7 +5,7 @@ target/
 **/*.rs.bk
 
 # Rust / Cargo specific
-Cargo.lock
+# Cargo.lock
 
 # Env files
 .env
