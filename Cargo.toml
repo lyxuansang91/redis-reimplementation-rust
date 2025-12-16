@@ -1,0 +1,12 @@
+[package]
+name = "redis-reimplementation-rust"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1.41", features = ["full"] }
+bytes = "1.7"
+thiserror = "1.0"
+dotenvy = "0.15"
+
+
